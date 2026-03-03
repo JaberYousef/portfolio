@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Semantic color tokens via CSS variables - switch with data-theme */
+:root,
+[data-theme="dark"] {
+  --bp-bg: #0a1628;
+  --bp-surface: #0f1d32;
+  --bp-accent: #00d4ff;
+  --bp-accent-hover: #00bfe6;
+  --bp-text: #e2e8f0;
+  --bp-text-dim: #94a3b8;
+  --bp-border: #1e3a5f;
+  --bp-grid: rgba(0, 212, 255, 0.04);
+  --bp-grid-major: rgba(0, 212, 255, 0.08);
+  --bp-glow: rgba(0, 212, 255, 0.08);
+  --bp-card-hover-border: rgba(0, 212, 255, 0.4);
+  --bp-scrollbar: rgba(0, 212, 255, 0.2);
+}
+
+[data-theme="light"] {
+  --bp-bg: #f0f4f8;
+  --bp-surface: #ffffff;
+  --bp-accent: #2563eb;
+  --bp-accent-hover: #1d4ed8;
+  --bp-text: #1e293b;
+  --bp-text-dim: #64748b;
+  --bp-border: #cbd5e1;
+  --bp-grid: rgba(37, 99, 235, 0.04);
+  --bp-grid-major: rgba(37, 99, 235, 0.08);
+  --bp-glow: rgba(37, 99, 235, 0.06);
+  --bp-card-hover-border: rgba(37, 99, 235, 0.4);
+  --bp-scrollbar: rgba(37, 99, 235, 0.2);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-bp-bg: var(--bp-bg);
+  --color-bp-surface: var(--bp-surface);
+  --color-bp-accent: var(--bp-accent);
+  --color-bp-accent-hover: var(--bp-accent-hover);
+  --color-bp-text: var(--bp-text);
+  --color-bp-text-dim: var(--bp-text-dim);
+  --color-bp-border: var(--bp-border);
+  --color-bp-glow: var(--bp-glow);
+  --color-bp-card-hover: var(--bp-card-hover-border);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-heading: var(--font-poppins);
+  --font-mono: var(--font-jetbrains);
+
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 }
 
+/* Blueprint grid background */
+.blueprint-grid {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--bp-grid) 0px,
+      var(--bp-grid) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--bp-grid) 0px,
+      var(--bp-grid) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      var(--bp-grid-major) 0px,
+      var(--bp-grid-major) 1px,
+      transparent 1px,
+      transparent 200px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--bp-grid-major) 0px,
+      var(--bp-grid-major) 1px,
+      transparent 1px,
+      transparent 200px
+    );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bp-scrollbar);
+  border-radius: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
