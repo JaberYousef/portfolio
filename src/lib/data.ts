@@ -331,7 +331,7 @@ export const timeline: TimelineEntry[] = [
     title: "Bachelor of Science in Computer Science",
     organization: "University of California, Santa Cruz",
     location: "Santa Cruz, CA",
-    period: "2021 - 2025",
+    period: "2023 - 2025",
     bullets: [
       "Focused on software engineering, distributed systems, and artificial intelligence",
       "Completed coursework in algorithms, databases, operating systems, and machine learning",
