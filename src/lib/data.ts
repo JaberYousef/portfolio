@@ -5,7 +5,7 @@ export const siteConfig = {
   title: "Software Engineer",
   tagline: "Living fully, building deliberately, and engineering what comes next.",
   email: "yjcareers@gmail.com",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/YousefJaber_Resume1.pdf",
 };
 
 export const navLinks: NavLink[] = [
