@@ -165,8 +165,12 @@ export const skillCategories: SkillCategory[] = [
     skills: ["Git", "GitHub", "GitLab", "NPM"],
   },
   {
-    category: "Data & Analytical Libraries",
-    skills: ["Pandas", "NumPy"],
+    category: "Python & Data",
+    skills: ["Pandas", "NumPy", "Matplotlib", "BeautifulSoup", "NLTK", "Flask", "Scikit-learn"],
+  },
+  {
+    category: "C++ & Systems",
+    skills: ["C++17", "CMake", "pthreads", "Socket Programming", "STL", "GDB", "Valgrind"],
   },
 ];
 
@@ -187,9 +191,19 @@ export const skillRows: SkillRow[] = [
     direction: "left",
   },
   {
-    label: "Infrastructure, DevOps & Tools",
-    skills: ["Docker", "AWS (ECS, RDS, S3, Lambda)", "Cloudflare", "NGINX", "Netlify", "Vercel", "Git", "GitHub", "GitLab", "NPM", "Pandas", "NumPy"],
+    label: "Python & Data",
+    skills: ["Pandas", "NumPy", "Matplotlib", "BeautifulSoup", "NLTK", "Flask", "Scikit-learn"],
+    direction: "left",
+  },
+  {
+    label: "C++ & Systems",
+    skills: ["C++17", "CMake", "pthreads", "Socket Programming", "STL", "GDB", "Valgrind"],
     direction: "right",
+  },
+  {
+    label: "Infrastructure, DevOps & Tools",
+    skills: ["Docker", "AWS (ECS, RDS, S3, Lambda)", "Cloudflare", "NGINX", "Netlify", "Vercel", "Git", "GitHub", "GitLab", "NPM", "Linux"],
+    direction: "left",
   },
 ];
 
@@ -233,6 +247,29 @@ export const projects: Project[] = [
   },
   {
     id: 4,
+    title: "Parkwise",
+    description:
+      "Virtualized campus parking system. Collaborated in a team of 6 developers to build a digital solution for campus parking operations, replacing paper-based systems with streamlined online processes for vehicle registration, permit purchasing, and ticket management.",
+    tech: ["TypeScript", "Docker", "PostgreSQL"],
+    status: "Complete",
+    logo: "/logos/parkwise.png",
+    date: "April 2025",
+    links: {
+      live: "https://parkwise.net",
+    },
+  },
+  {
+    id: 5,
+    title: "Drone Flight Tracker",
+    description:
+      "Real-time drone telemetry system that processes GPS, altitude, and IMU sensor data over MAVLink. Includes a Python dashboard for live flight visualization and post-flight analysis.",
+    tech: ["C++", "Python", "MAVLink", "Socket Programming", "Matplotlib"],
+    status: "In Progress",
+    date: "2026",
+    links: {},
+  },
+  {
+    id: 6,
     title: "Mini-MapReduce",
     description:
       "Distributed text-processing system simulating Hadoop/Spark MapReduce with fault tolerance and job scheduling.",
@@ -244,17 +281,24 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 5,
-    title: "Parkwise",
+    id: 7,
+    title: "Stockpulse",
     description:
-      "Virtualized campus parking system. Collaborated in a team of 6 developers to build a digital solution for campus parking operations, replacing paper-based systems with streamlined online processes for vehicle registration, permit purchasing, and ticket management.",
-    tech: ["TypeScript", "Docker", "PostgreSQL"],
+      "Stock sentiment analysis tool that scrapes financial news and social media, applies NLP scoring with NLTK and custom tokenizers, and generates daily buy/hold/sell signals. Backtested across 2 years of S&P 500 data with a 19% simulated annual return, outperforming baseline by 6%.",
+    tech: ["Python", "Pandas", "NumPy", "BeautifulSoup", "NLTK"],
     status: "Complete",
-    logo: "/logos/parkwise.png",
-    date: "April 2025",
-    links: {
-      live: "https://parkwise.net",
-    },
+    date: "2025",
+    links: {},
+  },
+  {
+    id: 8,
+    title: "Threadpool Engine",
+    description:
+      "Custom C++ multithreaded task executor with work-stealing scheduling, built from scratch using pthreads. Benchmarked against std::async with 2-3x throughput gains on I/O-bound workloads.",
+    tech: ["C++", "pthreads", "CMake", "Linux"],
+    status: "Complete",
+    date: "2025",
+    links: {},
   },
 ];
 
