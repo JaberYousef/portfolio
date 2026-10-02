@@ -11,7 +11,7 @@ export const site = {
   // The second part is set in the accent color.
   headline: ["Software engineer building things people", "actually use."],
   intro:
-    "I work across full-stack and AI, most recently on Clovent, a CRM now used by active real estate agents.",
+    "I work across full-stack and AI, most recently on Clovent, an AI agent now used by active real estate agents.",
   description:
     "Yousef Jaber is a software engineer in the SF Bay Area building full-stack products, AI pipelines, and real-time systems. UC Santa Cruz CS ’25.",
 };
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     proof: "Used by 5 agents",
     title: "Clovent",
     description:
-      "A multi-tenant AI CRM for real estate agents, currently used by 5 active agents. A GPT-4o Vision pipeline pulls leads straight off open house sign-in sheets, and an AI assistant with multi-agent chat and 14+ callable tools works directly with CRM data.",
+      "A multi-tenant AI agent for real estate, currently used by 5 active agents. A GPT-4o Vision pipeline pulls leads straight off open house sign-in sheets, and the agent uses multi-agent chat and 14+ callable tools to work directly with client and deal data.",
     highlights: [
       "OAuth with role-based access per tenant",
       "CI/CD pipeline shipping releases every 2 days",
