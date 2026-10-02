@@ -1,49 +1,46 @@
+export type ProjectStatus = "Live" | "Early access" | "In progress" | "Complete";
+
 export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tech: string[];
-  status: "Live" | "In Progress" | "Complete";
+  slug: string;
+  /** Featured projects render as large cards above the list. */
   featured?: boolean;
+  title: string;
+  /** Short result shown in the collapsed row. */
+  proof: string;
+  description: string;
+  highlights: string[];
+  tags: string[];
+  tech: string[];
+  status: ProjectStatus;
+  year: string;
   logo?: string;
   image?: string;
-  date?: string;
   links: {
     live?: string;
-    github?: string;
+    repo?: string;
   };
 }
 
-export interface SkillCategory {
-  category: string;
-  skills: string[];
-}
-
-export interface TimelineEntry {
-  id: number;
-  title: string;
+export interface Role {
   organization: string;
+  title: string;
   location: string;
   period: string;
   bullets: string[];
-  link?: string;
   logo?: string;
-  type: "work" | "education";
+  link?: string;
 }
 
-export interface SkillRow {
+export interface StackGroup {
   label: string;
-  skills: string[];
-  direction: "left" | "right";
+  items: string[];
 }
 
-export interface NavLink {
-  label: string;
-  href: string;
-}
-
-export interface SocialLink {
-  label: string;
-  href: string;
-  icon: "github" | "linkedin" | "email";
+export interface Photo {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /** CSS object-position when the photo is cropped into a tile. */
+  position?: string;
 }

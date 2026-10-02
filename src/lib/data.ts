@@ -1,385 +1,214 @@
-import type { Project, SkillCategory, SkillRow, TimelineEntry, NavLink, SocialLink } from "@/types";
+import type { Photo, Project, Role, StackGroup } from "@/types";
 
-export const siteConfig = {
+export const site = {
   name: "Yousef Jaber",
-  title: "Software Engineer",
-  tagline: "Living fully, building deliberately, and engineering what comes next.",
+  role: "Software Engineer",
   email: "yjcareers@gmail.com",
-  resumeUrl: "/YousefJaber_Resume1.pdf",
+  resume: "/YousefJaber_Resume.pdf",
+  github: "https://github.com/JaberYousef",
+  linkedin: "https://linkedin.com/in/yousef-jaber2",
+  location: "SF Bay Area",
+  // The second part is set in the accent color.
+  headline: ["Software engineer building things people", "actually use."],
+  intro:
+    "I work across full-stack and AI, most recently on Clovent, a CRM now used by active real estate agents.",
+  description:
+    "Yousef Jaber is a software engineer in the SF Bay Area building full-stack products, AI pipelines, and real-time systems. UC Santa Cruz CS ’25.",
 };
 
-export const navLinks: NavLink[] = [
+export const heroLine = "SF Bay Area. Currently building Clovent and Avern.";
+
+export const sectionNotes = {
+  work: "Six projects, three you can try today. Repos are private; happy to walk through the code.",
+  experience: "Three roles since 2023, from data pipelines to client products.",
+};
+
+export const navLinks = [
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
-export const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: "https://github.com/JaberYousef", icon: "github" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yousef-jaber2", icon: "linkedin" },
-  { label: "Email", href: "mailto:yjcareers@gmail.com", icon: "email" },
+export const stack: StackGroup[] = [
+  { label: "Languages", items: ["TypeScript", "JavaScript", "Python", "C/C++", "SQL", "GraphQL"] },
+  { label: "Product", items: ["React", "Next.js", "Node.js", "Express", "FastAPI", "PostgreSQL", "Supabase"] },
+  { label: "AI & data", items: ["OpenAI", "Anthropic", "Gemini", "Whisper", "Pandas", "NumPy", "scikit-learn"] },
+  { label: "Infrastructure", items: ["AWS", "GCP", "Docker", "Redis", "BullMQ", "Vercel", "Vitest"] },
 ];
 
-export const aboutSpecs = [
-  { label: "Name", value: "Yousef Jaber" },
-  { label: "Education", value: "BS Computer Science, UC Santa Cruz '25" },
-  { label: "Focus", value: "Full-Stack Development, AI/ML, Distributed Systems" },
-  { label: "Location", value: "California, USA" },
-];
-
-export const aboutBioWork = [
-  "Computer Science graduate from UC Santa Cruz with a passion for building production-grade software. I specialize in full-stack development with TypeScript and Next.js, and I'm deeply interested in AI-driven applications and distributed systems.",
-  "I thrive at the intersection of clean architecture and real-world impact, turning complex problems into elegant, maintainable solutions. When I'm not coding, I'm exploring new tools, contributing to open source, and pushing the boundaries of what software can do.",
-];
-
-export const personalIntro = "Outside of engineering, I care deeply about growth, physically, mentally, and strategically.";
-
-export const hobbies = [
-  {
-    emoji: "dog",
-    title: "Spending time with my dog",
-    description: "I genuinely enjoy being outside, walking, and just disconnecting from screens. It keeps me grounded and reminds me life isn't just code and startups.",
-  },
-  {
-    emoji: "gaming",
-    title: "Gaming (PC & strategy games)",
-    description: "I've always enjoyed competitive and strategy-based games. I like understanding mechanics, optimizing builds, and thinking a few steps ahead. Games like Minecraft, Fortnite, Age of Empires, and survival/strategy games are fun for me not just because they're games, but because they're systems.",
-  },
-  {
-    emoji: "golf",
-    title: "Golf",
-    description: "Precision, patience, and small adjustments over time. I like sports that reward discipline and focus.",
-  },
-  {
-    emoji: "snowboard",
-    title: "Snowboarding",
-    description: "I enjoy pushing myself physically and mentally. There's something about speed + control + risk that sharpens you.",
-  },
-  {
-    emoji: "swim",
-    title: "Swimming & Training",
-    description: "I train consistently and focus on strength, mobility, and building an aesthetic but athletic physique. I care about longevity and performance.",
-  },
-  {
-    emoji: "markets",
-    title: "Studying Markets & Investing",
-    description: "I actively manage investments and enjoy thinking about capital allocation, macro trends, and long-term strategy. I like understanding how incentives drive behavior, in markets and in systems.",
-  },
-  {
-    emoji: "ai",
-    title: "Experimenting with AI & New Tech",
-    description: "Even outside of formal projects, I enjoy exploring new APIs, building prototypes, and testing ideas. I learn by building.",
-  },
-  {
-    emoji: "backpack",
-    title: "Backpacking",
-    description: "Loading up a pack and heading into the backcountry. I enjoy the self-reliance, the quiet, and the challenge of carrying everything you need on your back.",
-  },
-  {
-    emoji: "hike",
-    title: "Hiking",
-    description: "Getting out on a trail clears my head like nothing else. Whether it's a quick morning hike or a full day on the mountain, it resets perspective.",
-  },
-  {
-    emoji: "camp",
-    title: "Camping",
-    description: "Disconnecting completely. No Wi-Fi, no notifications. Just fire, fresh air, and simplicity. It's one of the best ways to recharge.",
-  },
-  {
-    emoji: "learning",
-    title: "Learning Across Industries",
-    description: "I naturally explore healthcare, legal systems, finance, infrastructure. I like understanding how different industries operate at a systems level.",
-  },
-];
-
-export const personalValues = [
-  "Ownership",
-  "Self-discipline",
-  "Strategic thinking",
-  "Long-term vision",
-  "Continuous learning",
-];
-
-export const personalTagline = "I prefer building quietly and letting results speak.";
-
-export interface GalleryAlbum {
-  title: string;
-  photos: string[];
-}
-
-export const galleryAlbums: GalleryAlbum[] = [
-  {
-    title: "King",
-    photos: [
-      "/king/IMG_2277.jpeg",
-      "/king/IMG_3497.jpeg",
-      "/king/IMG_5733.jpeg",
-    ],
-  },
-  {
-    title: "Backpacking",
-    photos: [
-      "/backpacking/IMG_3102.jpeg",
-      "/backpacking/IMG_3191.jpeg",
-    ],
-  },
-  {
-    title: "Hiking",
-    photos: [
-      "/hiking/IMG_1516.jpeg",
-    ],
-  },
-  {
-    title: "Camping",
-    photos: [
-      "/camping/IMG_1939.jpeg",
-    ],
-  },
-];
-
-export const skillCategories: SkillCategory[] = [
-  {
-    category: "Programming Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "C++", "C", "HTML5", "CSS3"],
-  },
-  {
-    category: "Frontend",
-    skills: ["React", "Next.js", "React Router", "Vite"],
-  },
-  {
-    category: "Backend",
-    skills: ["Node.js", "Express.js", "GraphQL", "TypeGraphQL", "JWT Authentication"],
-  },
-  {
-    category: "Databases",
-    skills: ["PostgreSQL", "MySQL"],
-  },
-  {
-    category: "Infrastructure & DevOps",
-    skills: ["Docker", "AWS (ECS, RDS, S3, Lambda)", "Cloudflare", "NGINX", "Netlify", "Vercel"],
-  },
-  {
-    category: "Version Control & Collaboration",
-    skills: ["Git", "GitHub", "GitLab", "NPM"],
-  },
-  {
-    category: "Python & Data",
-    skills: ["Pandas", "NumPy", "Matplotlib", "BeautifulSoup", "NLTK", "Flask", "Scikit-learn"],
-  },
-  {
-    category: "C++ & Systems",
-    skills: ["C++17", "CMake", "pthreads", "Socket Programming", "STL", "GDB", "Valgrind"],
-  },
-];
-
-export const skillRows: SkillRow[] = [
-  {
-    label: "Programming Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "C++", "C", "HTML5", "CSS3"],
-    direction: "left",
-  },
-  {
-    label: "Frontend",
-    skills: ["React", "Next.js", "React Router", "Vite"],
-    direction: "right",
-  },
-  {
-    label: "Backend & Databases",
-    skills: ["Node.js", "Express.js", "GraphQL", "TypeGraphQL", "JWT Authentication", "PostgreSQL", "MySQL"],
-    direction: "left",
-  },
-  {
-    label: "Python & Data",
-    skills: ["Pandas", "NumPy", "Matplotlib", "BeautifulSoup", "NLTK", "Flask", "Scikit-learn"],
-    direction: "left",
-  },
-  {
-    label: "C++ & Systems",
-    skills: ["C++17", "CMake", "pthreads", "Socket Programming", "STL", "GDB", "Valgrind"],
-    direction: "right",
-  },
-  {
-    label: "Infrastructure, DevOps & Tools",
-    skills: ["Docker", "AWS (ECS, RDS, S3, Lambda)", "Cloudflare", "NGINX", "Netlify", "Vercel", "Git", "GitHub", "GitLab", "NPM", "Linux"],
-    direction: "left",
-  },
-];
-
+// Order is deliberate: live products with real users first, then depth (pipelines,
+// team systems work, C++), then the public demo. Repos are private, so only live
+// sites get a link.
 export const projects: Project[] = [
   {
-    id: 1,
+    slug: "clovent",
+    featured: true,
+    proof: "Used by 5 agents",
     title: "Clovent",
     description:
-      "AI-driven real estate CRM with deal intelligence, lead prioritization, and automated pipeline management.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "AI"],
+      "A multi-tenant AI CRM for real estate agents, currently used by 5 active agents. A GPT-4o Vision pipeline pulls leads straight off open house sign-in sheets, and an AI assistant with multi-agent chat and 14+ callable tools works directly with CRM data.",
+    highlights: [
+      "OAuth with role-based access per tenant",
+      "CI/CD pipeline shipping releases every 2 days",
+    ],
+    tags: ["AI", "SaaS", "Multi-tenant"],
+    tech: ["Next.js", "React", "Node.js", "Supabase", "PostgreSQL", "GPT-4o"],
     status: "Live",
-    featured: true,
+    year: "2026",
     logo: "/logos/clovent.svg",
-    date: "2026",
-    links: {
-      live: "https://clovent.xyz",
-    },
+    image: "/work/clovent.jpg",
+    links: { live: "https://clovent.xyz" },
   },
   {
-    id: 2,
-    title: "Cryop",
-    description:
-      "AI-governed treasury platform with automated capital allocation and DeFi yield optimization.",
-    tech: ["TypeScript", "Solidity", "React"],
-    status: "In Progress",
+    slug: "avern",
     featured: true,
-    logo: "/logos/cryop.png",
-    date: "2026",
-    links: {},
+    proof: "Security-first marketplace",
+    title: "Avern",
+    description:
+      "A trusted network for commodity and energy trade, where verified buyers and sellers find each other and move deals forward in an auditable workflow. Built security-first: every table is locked down with row-level security, every sensitive action is written to an append-only audit log, and documents are shared through private deal rooms.",
+    highlights: [
+      "Two-step verification with TOTP multi-factor auth",
+      "Private storage with short-lived document links",
+    ],
+    tags: ["Marketplace", "Security"],
+    tech: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Vercel"],
+    status: "Early access",
+    year: "2026",
+    image: "/work/avern.jpg",
+    links: { live: "https://www.useavern.com" },
   },
   {
-    id: 3,
+    slug: "sentineldocs",
+    proof: "Whisper + GPT pipeline",
     title: "SentinelDocs",
     description:
-      "Multi-tenant SaaS platform that uses AI to automate report generation from video footage, reducing manual paperwork and accelerating documentation workflows.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "LLM"],
-    status: "In Progress",
-    featured: true,
-    date: "2025",
+      "An async pipeline that turns uploaded video and documents into structured reports. Files land in AWS S3, jobs queue through BullMQ and Redis, and Python workers transcribe with Whisper and run GPT-based extraction into a multi-tenant PostgreSQL model.",
+    highlights: ["JWT-secured API", "End-to-end monitoring across the pipeline"],
+    tags: ["AI", "Pipelines"],
+    tech: ["Node.js", "Express", "Python", "FastAPI", "Redis", "BullMQ", "AWS S3", "PostgreSQL"],
+    status: "In progress",
+    year: "2025",
     links: {},
   },
   {
-    id: 4,
-    title: "Parkwise",
+    slug: "parking",
+    proof: "Led a team of 6",
+    title: "Campus Parking System",
     description:
-      "Virtualized campus parking system. Collaborated in a team of 6 developers to build a digital solution for campus parking operations, replacing paper-based systems with streamlined online processes for vehicle registration, permit purchasing, and ticket management.",
-    tech: ["TypeScript", "Docker", "PostgreSQL"],
+      "Replaced a paper-based campus parking operation with online registration, permits, and ticket management. I led backend and frontend development across a team of 6, on a microservice architecture of 4 Docker services talking over REST and GraphQL.",
+    highlights: [
+      "Stripe payments, Mailgun email, and OAuth sign-in",
+      "Internationalized for English and Mandarin",
+    ],
+    tags: ["Full-stack", "Team of 6"],
+    tech: ["Next.js", "PostgreSQL", "Docker", "TypeGraphQL", "TSOA", "Stripe"],
     status: "Complete",
+    year: "2025",
     logo: "/logos/parkwise.png",
-    date: "April 2025",
-    links: {
-      live: "https://parkwise.net",
-    },
-  },
-  {
-    id: 5,
-    title: "Drone Flight Tracker",
-    description:
-      "Real-time drone telemetry system that processes GPS, altitude, and IMU sensor data over MAVLink. Includes a Python dashboard for live flight visualization and post-flight analysis.",
-    tech: ["C++", "Python", "MAVLink", "Socket Programming", "Matplotlib"],
-    status: "In Progress",
-    date: "2026",
     links: {},
   },
   {
-    id: 6,
+    slug: "drone",
+    proof: "Kalman + PID in C++",
+    title: "Real-Time Drone Tracker",
+    description:
+      "A real-time multi-object tracker in C++ using MOG2 background subtraction and Kalman filtering, with PID control steering a servo gimbal through an Arduino Nano over POSIX serial.",
+    highlights: [],
+    tags: ["C++", "Computer vision", "Hardware"],
+    tech: ["C++", "Arduino", "POSIX serial"],
+    status: "Complete",
+    year: "2026",
+    links: {},
+  },
+  {
+    slug: "mapreduce",
+    proof: "Try the live demo",
     title: "Mini-MapReduce",
     description:
-      "Distributed text-processing system simulating Hadoop/Spark MapReduce with fault tolerance and job scheduling.",
+      "An interactive simulation of how Hadoop and Spark process text at scale: input is split into shards, mapped in parallel, and reduced into one result, with live progress tracking and a timeline of each phase.",
+    highlights: [],
+    tags: ["Distributed systems"],
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3"],
-    status: "Complete",
-    date: "2024",
-    links: {
-      live: "https://mini-map-reduce.vercel.app/",
-    },
-  },
-  {
-    id: 7,
-    title: "Stockpulse",
-    description:
-      "Stock sentiment analysis tool that scrapes financial news and social media, applies NLP scoring with NLTK and custom tokenizers, and generates daily buy/hold/sell signals. Backtested across 2 years of S&P 500 data with a 19% simulated annual return, outperforming baseline by 6%.",
-    tech: ["Python", "Pandas", "NumPy", "BeautifulSoup", "NLTK"],
-    status: "Complete",
-    date: "2025",
-    links: {},
-  },
-  {
-    id: 8,
-    title: "Threadpool Engine",
-    description:
-      "Custom C++ multithreaded task executor with work-stealing scheduling, built from scratch using pthreads. Benchmarked against std::async with 2-3x throughput gains on I/O-bound workloads.",
-    tech: ["C++", "pthreads", "CMake", "Linux"],
-    status: "Complete",
-    date: "2025",
-    links: {},
+    status: "Live",
+    year: "2024",
+    image: "/work/mapreduce.jpg",
+    links: { live: "https://mini-map-reduce.vercel.app" },
   },
 ];
 
-export const timeline: TimelineEntry[] = [
+export const experience: Role[] = [
   {
-    id: 1,
-    title: "Founder & Software Engineer",
     organization: "YJ Tech Ventures",
-    location: "Remote, USA",
-    period: "July 2025 - Present",
-    link: "https://yjtechventures.com",
+    title: "Software Engineer",
+    location: "Remote",
+    period: "Jul 2025 - Present",
     bullets: [
-      "Designed and shipped full-stack web apps for fintech and entertainment clients, handling 10K+ concurrent users",
-      "Built performant, accessible interfaces using React, Next.js, and CSS-in-JS with attention to layout and animation",
-      "Deployed on Netlify and Vercel with CI/CD pipelines, reducing deployment time by ~40%",
-      "Implemented WCAG accessibility and responsive design ensuring inclusive cross-platform experiences",
+      "Built and deployed full-stack web apps for fintech and enterprise clients using React, Node.js, and PostgreSQL, owning everything from the database schema and REST APIs to the frontend.",
+      "Shipped LLM-powered features into client applications using the OpenAI, Anthropic, and Gemini APIs.",
+      "Scoped projects directly with clients, wrote proposals and contracts, and supported them after launch.",
     ],
-    type: "work",
   },
   {
-    id: 2,
-    title: "Co-Founder & CTO",
-    organization: "Clovent",
-    location: "Remote, USA",
-    period: "2026 - Present",
-    logo: "/logos/clovent.svg",
-    link: "https://clovent.xyz",
-    bullets: [
-      "Building an AI-driven real estate CRM from the ground up with Next.js, PostgreSQL, and custom AI pipelines",
-      "Architecting deal intelligence and lead prioritization features for automated pipeline management",
-    ],
-    type: "work",
-  },
-  {
-    id: 3,
-    title: "Co-Founder & CTO",
-    organization: "Cryop",
-    location: "Remote, USA",
-    period: "2026 - Present",
-    logo: "/logos/cryop.png",
-    bullets: [
-      "Developing an AI-governed DeFi treasury platform with automated capital allocation strategies",
-    ],
-    type: "work",
-  },
-  {
-    id: 4,
-    title: "Programmer Intern",
     organization: "VerdeVista Investment Group",
-    location: "Remote, USA",
-    period: "Jan 2025 - Sept 2025",
+    title: "Software Engineer Intern",
+    location: "Remote",
+    period: "Jan 2025 - Sep 2025",
     logo: "/logos/verdevista.avif",
     bullets: [
-      "Built automation scripts and AI-powered tools (Apps Script, JavaScript, Python), cutting manual research time ~35%",
-      "Participated in code reviews and contributed to development standards for internal tooling",
+      "Built a Python automation tool that consolidated 3 separate processes into one system the team relied on daily.",
+      "Developed APIs and a dashboard surfacing real-time investment signals, saving the team 8+ hours per week.",
+      "Shipped through code review with unit tests and documentation, working with stakeholders to define requirements and improve data quality.",
     ],
-    type: "work",
   },
   {
-    id: 5,
-    title: "Software Engineering Intern",
     organization: "4L Data Intelligence",
+    title: "Software Engineering Intern",
     location: "San Ramon, CA",
-    period: "Mar 2023 - July 2023",
+    period: "Mar 2023 - Jul 2023",
     logo: "/logos/4l.svg",
     bullets: [
-      "Optimized Python web scraping scripts, increasing data collection efficiency by 20%",
-      "Built tools to organize real-time data, supporting healthcare providers with actionable insights",
+      "Optimized Python data pipelines, increasing throughput 3x per run for downstream analytics.",
+      "Built tooling that surfaced real-time metrics to end users.",
+      "Designed data validation checks with a cross-functional team to catch bad data early.",
     ],
-    type: "work",
-  },
-  {
-    id: 6,
-    title: "Bachelor of Science in Computer Science",
-    organization: "University of California, Santa Cruz",
-    location: "Santa Cruz, CA",
-    period: "2023 - 2025",
-    bullets: [
-      "Focused on software engineering, distributed systems, and artificial intelligence",
-      "Completed coursework in algorithms, databases, operating systems, and machine learning",
-    ],
-    type: "education",
   },
 ];
+
+export const about = {
+  lead: "I build software that holds up in production,",
+  leadRest: " and I care just as much about how it lands for the people using it.",
+  paragraphs: [
+    "I studied computer science at UC Santa Cruz and have been shipping ever since. Most of my work is full-stack TypeScript on Next.js and PostgreSQL, with a growing share of AI pipelines: vision models that read paper forms, agents that call real tools, and workers that turn video into reports.",
+    "I like understanding how things work at a systems level, whether that is a codebase, a market, or an industry I have not touched yet. I prefer building quietly and letting results speak.",
+  ],
+  facts: [
+    { label: "Studied", value: "UC Santa Cruz, B.S. Computer Science" },
+    { label: "Focus", value: "Full-stack, AI pipelines, real-time systems" },
+    { label: "Values", value: "Ownership, discipline, long-term thinking" },
+  ],
+  photo: {
+    src: "/photos/standing.jpg",
+    alt: "Yousef Jaber standing on a path in front of trees",
+    width: 1050,
+    height: 1400,
+  } satisfies Photo,
+};
+
+export const portrait: Photo = {
+  src: "/photos/portrait.jpg",
+  alt: "Portrait of Yousef Jaber outdoors in a green shirt",
+  width: 793,
+  height: 733,
+};
+
+export const life = {
+  title: "Off the clock.",
+  body: "Most weekends I am somewhere without signal: backpacking, camping, or on a trail with King, my German Shepherd. The rest of the time it is the gym and the pool, golf, snowboarding in winter, strategy games, and reading about markets.",
+  photos: {
+    ridge: { src: "/photos/backpacking-ridge.jpg", alt: "Yousef backpacking below a granite ridge", width: 1400, height: 1050 },
+    king: { src: "/photos/king-car.jpg", alt: "King, a German Shepherd, resting his head on his paws", width: 1050, height: 1400 },
+    camp: { src: "/photos/camping.jpg", alt: "Yousef sitting by a campfire among pine trees", width: 1400, height: 1208 },
+    coast: { src: "/photos/hiking-coast.jpg", alt: "A hiking trail running down a grassy hill toward the coast", width: 1050, height: 1400, position: "50% 85%" },
+  } satisfies Record<string, Photo>,
+};
